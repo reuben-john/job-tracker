@@ -15,3 +15,6 @@ class Application(models.Model):
     location = models.CharField(max_length=100)
     date_added = models.DateField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=STATUSES)
+
+    def __str__(self):
+        return f"{self.position} @ {self.company}"
