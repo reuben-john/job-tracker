@@ -14,7 +14,8 @@ class Application(models.Model):
     contact_name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     date_added = models.DateField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=STATUSES)
+    status = models.CharField(
+        max_length=20, choices=STATUSES, default="submitted")
 
     def __str__(self):
         return f"{self.position} @ {self.company}"
