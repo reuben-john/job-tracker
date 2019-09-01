@@ -10,7 +10,7 @@
     <li>Position: {{ entry.position }}</li>
     <li>Company: {{ entry.company }}</li>
     <li>Location: {{ entry.location }}</li>
-    <li>URL: {{ entry.post_url }}</li>
+    <li>URL: <a href="{{ entry.post_url }}">Website</a></li>
     <li>Contact: {{ entry.contact_name }}</li>
     <li>Status: {{ entry.status }}</li>
     <li>Date Submitted: {{ entry.date_added|date:'M d, Y' }}</li>
