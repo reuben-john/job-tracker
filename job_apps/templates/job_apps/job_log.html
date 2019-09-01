@@ -1,0 +1,16 @@
+{% extends 'job_apps/base.html' %}
+
+{% block content %}
+
+  <p>Applications</p>
+
+  <ul>
+  {% for log in job_log %}        
+    <li> {{ log }}
+    </li>
+  {% empty %}
+    <li>No topics have been added yet.</li>
+  {% endfor %}
+  </ul>
+  
+{% endblock content %}
