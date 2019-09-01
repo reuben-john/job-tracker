@@ -1,0 +1,23 @@
+{% extends 'job_apps/base.html' %}
+
+{% block content %}
+
+<p>Application: {{ job_title }}</p>
+
+<p>Job Application Details
+  <ul>
+  {% for entry in job_entry %}
+    <li>Position: {{ entry.position }}</li>
+    <li>Company: {{ entry.company }}</li>
+    <li>Location: {{ entry.location }}</li>
+    <li>URL: {{ entry.post_url }}</li>
+    <li>Contact: {{ entry.contact_name }}</li>
+    <li>Status: {{ entry.status }}</li>
+    <li>Date Submitted: {{ entry.date_added|date:'M d, Y' }}</li>
+  {% empty %}
+    <li>Something went wrong.</li>
+  {% endfor %}
+  </ul>
+</p>
+
+{% endblock content %}

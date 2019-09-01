@@ -9,5 +9,7 @@ urlpatterns = [
     # Home page
     path('', views.index, name='index'),
     # Application Entry Log
-    path('job_log/', views.job_log, name='log')
+    path('job_log/', views.job_log, name='job_log'),
+    # Details page for job entry
+    path('job_log/<int:job_entry_id>/', views.job_entry, name='job_entry')
 ]

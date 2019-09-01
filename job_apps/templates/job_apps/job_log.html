@@ -6,7 +6,8 @@
 
   <ul>
   {% for log in job_log %}        
-    <li> {{ log }}
+    <li> 
+      <a href="{% url 'job_apps:job_entry' log.id %}">{{ log }}</a>
     </li>
   {% empty %}
     <li>No topics have been added yet.</li>
