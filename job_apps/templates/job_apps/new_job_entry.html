@@ -1,0 +1,13 @@
+{% extends 'job_apps/base.html' %}
+
+
+{% block content %}
+  <p>Log new job application:</p>
+
+  <form action="{% url 'job_apps:new_job_entry' %}" method='post'>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button name='submit'>Log Application</button>
+  </form>
+
+{% endblock content %}

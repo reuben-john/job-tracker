@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from .models import Application
+from .forms import ApplicationForm
 
 
 def index(request):
@@ -22,3 +23,21 @@ def job_entry(request, job_entry_id):
     job_title = Application.objects.get(id=job_entry_id)
     context = {'job_title': job_title, 'job_entry': job_entry}
     return render(request, 'job_apps/job_entry.html', context)
+
+
+def new_job_entry(request):
+    """Add a new job application entry"""
+    if request.method != 'POST':
+        # No data submitted, create blank form
+        form = ApplicationForm()
+
+    else:
+        # POST data submitted, process data
+        form = ApplicationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('job_apps:job_log')
+
+    # Display blank or invalid form
+    context = {'form': form}
+    return render(request, 'job_apps/new_job_entry.html', context)
