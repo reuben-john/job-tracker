@@ -1,0 +1,17 @@
+{% extends 'job_apps/base.html' %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password did not match. Please try again.</p>
+  {% endif %}
+
+  <form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit">Log in</button>
+    <input type="hidden" name="next" value="{% url 'job_apps:index' %}">
+  </form>
+
+{% endblock content %}
