@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from .models import Application
@@ -10,6 +11,7 @@ def index(request):
     return render(request, 'job_apps/index.html')
 
 
+@login_required
 def job_log(request):
     """List of all job log entries for user"""
     job_log = Application.objects.order_by('date_added')
@@ -17,6 +19,7 @@ def job_log(request):
     return render(request, 'job_apps/job_log.html', context)
 
 
+@login_required
 def job_entry(request, job_entry_id):
     """Show details for a single job log"""
     job_entry = Application.objects.filter(id=job_entry_id).values()
@@ -25,6 +28,7 @@ def job_entry(request, job_entry_id):
     return render(request, 'job_apps/job_entry.html', context)
 
 
+@login_required
 def new_job_entry(request):
     """Add a new job application entry"""
     if request.method != 'POST':
@@ -43,6 +47,7 @@ def new_job_entry(request):
     return render(request, 'job_apps/new_job_entry.html', context)
 
 
+@login_required
 def edit_job_entry(request, job_entry_id):
     """Edit existing job entry"""
     job_entry = Application.objects.get(id=job_entry_id)

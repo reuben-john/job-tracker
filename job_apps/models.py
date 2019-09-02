@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -16,6 +17,7 @@ class Application(models.Model):
     date_added = models.DateField(auto_now_add=True)
     status = models.CharField(
         max_length=20, choices=STATUSES, default="submitted")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.position} @ {self.company}"
