@@ -41,3 +41,22 @@ def new_job_entry(request):
     # Display blank or invalid form
     context = {'form': form}
     return render(request, 'job_apps/new_job_entry.html', context)
+
+
+def edit_job_entry(request, job_entry_id):
+    """Edit existing job entry"""
+    job_entry = Application.objects.get(id=job_entry_id)
+
+    if request.method != 'POST':
+        # Initial request, pre-fill form with current data
+        form = ApplicationForm(instance=job_entry)
+
+    else:
+        # POST data submitted, process data
+        form = ApplicationForm(instance=job_entry, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('job_apps:job_log')
+
+    context = {'job_entry': job_entry, 'form': form}
+    return render(request, 'job_apps/edit_job_entry.html', context)

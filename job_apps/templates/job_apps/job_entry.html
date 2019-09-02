@@ -7,6 +7,7 @@
 <p>Job Application Details
   <ul>
   {% for entry in job_entry %}
+  
     <li>Position: {{ entry.position }}</li>
     <li>Company: {{ entry.company }}</li>
     <li>Location: {{ entry.location }}</li>
@@ -14,10 +15,14 @@
     <li>Contact: {{ entry.contact_name }}</li>
     <li>Status: {{ entry.status }}</li>
     <li>Date Submitted: {{ entry.date_added|date:'M d, Y' }}</li>
+    <p>
+      <a href="{% url 'job_apps:edit_job_entry' entry.id %}">Edit entry</a>
+    </p>
   {% empty %}
     <li>Something went wrong.</li>
   {% endfor %}
   </ul>
+  
 </p>
 
 {% endblock content %}
