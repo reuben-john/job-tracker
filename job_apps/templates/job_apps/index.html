@@ -1,5 +1,10 @@
 {% extends 'job_apps/base.html' %}
 
-{% block content %}
-    <p>This is the job tracker home page</p>
-{% endblock content %}
+{% block page_header %}
+  <div class="jumbotron">
+    <h1 class="display-3">Track your job hunt.</h1>
+    <p class="lead">Make your own Job Application Tracking log. </p>
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+    role="button">Register &raquo;</a>
+  </div>
+{% endblock page_header %}
