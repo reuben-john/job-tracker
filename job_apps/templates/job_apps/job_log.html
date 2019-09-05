@@ -1,19 +1,21 @@
 {% extends 'job_apps/base.html' %}
 
-{% block content %}
+{% block page_header %}
+  <h1>Applications</h1>
+{% endblock page_header%}
 
-  <p>Applications</p>
+{% block content %}
 
   <ul>
   {% for log in job_log %}        
-    <li> 
+    <li><h3> 
       <a href="{% url 'job_apps:job_entry' log.id %}">{{ log }}</a>
-    </li>
+    </h3></li>
   {% empty %}
-    <li>No topics have been added yet.</li>
+    <li><h3>No topics have been added yet.</h3></li>
   {% endfor %}
   </ul>
 
-  <a href="{% url 'job_apps:new_job_entry' %}">Add new entry</a>
+  <h3><a href="{% url 'job_apps:new_job_entry' %}">Add new entry</a></h3>
   
 {% endblock content %}

@@ -1,5 +1,10 @@
 {% extends 'job_apps/base.html' %}
 
+{% block page_header %}
+  <h3>{{ job_title }}</h3>
+{% endblock page_header %}
+
+
 {% block content %}
 
 <p>Application: {{ job_title }}</p>
