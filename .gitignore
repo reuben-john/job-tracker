@@ -1,1 +1,5 @@
-job_env
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3

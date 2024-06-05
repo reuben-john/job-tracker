@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'users',
 
     # Third party apps
-    'bootstrap4',
+    'django_bootstrap5',
 
     # Default django apps.
     'django.contrib.admin',
@@ -117,8 +117,6 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 
@@ -126,6 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # My settings
 LOGIN_URL = 'users:login'
