@@ -9,8 +9,9 @@ The site is written in Python using Django.
 * Add job application log
 * Edit job application log
 * User AUTH to limit data access
+* Apply styling using django-bootstrap
 
 ### TODO
 
-* Apply styling using django-bootstrap
+* Figure out other things to add
 * Switch to using PostgreSQL instead of SQLite
